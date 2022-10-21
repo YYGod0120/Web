@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style type="text/css">
+        .right1{
+            width: 70px;
+            height: 25px;
+            margin-left: 15px;
+            margin-top: 13px;
+            background-color: dodgerblue;
+            float: right;
+            color: azure;
+            text-align: center;
+            line-height: 25px;
+        }
+        .right2{
+            width: 50px;
+            height: 30px;
+            float: right;
+            margin-top: 10px;
+            margin-left: 8px;
+            color:rgba(0, 0, 0, 0.76);
+            text-align: center;
+            text-decoration:underline;
+
+            line-height: 30px;
+
+        }
+        .right3{
+            width: 50px;
+            height: 30px;
+            margin-left: 5px;
+            margin-top: 10px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: underline;
+            line-height: 30px;
+            float: right;
+        }
+        .right4{
+            width: 50px;
+            height: 30px;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top: 10px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: underline;
+            line-height: 30px;
+            float: right;
+
+        }
+        
+        a:link{color: blue;text-decoration: none;}
+        a:visited{color:black;text-decoration: none;}
+        
+        .mid1{
+            background-color:rgb(255, 255, 255);
+            width: 800px;
+            height: 100px;
+            position: absolute;
+            left:55%;
+            top:40%;
+            transform: translate(-50%,-50%);
+        }
+        .text1{
+            width: 600px;
+            height: 35px;
+
+            float: left;
+            border-color: rgba(0, 0, 0, 0.24);
+        }
+        .submit1{
+            width: 100px;
+            height: 41px;
+            border: 0px;
+            color: azure;
+            font-size: 15px;
+            font-weight: bold;
+            background-color: dodgerblue;
+            float: left;
+            top:0px;    
+        }
+        .picture1{
+            position:relative;
+            left:50%;
+            top: 110px;
+            transform: translate(-50%);   
+        }
+        .picture2{
+            display: block;
+            position: absolute;
+            left:50%;
+            
+            transform: translate(-50%);
+        }
+        .bottom_picture{
+            position:absolute;
+            left: 50%;
+            transform: translate(-50%);  
+            bottom: 165px;
+            width: 200px;
+            height: 200px;
+            background-color: rgb(255, 255, 255);
+        }
+        .words2{
+            text-align:center;
+            position: relative;
+            top: 150px;
+            color:  rgba(0, 0, 0, 0.318);
+        }
+        .words1{
+            text-align:center;
+            position: relative;
+            top: 130px;
+        }
+        .bottom_word1{
+            display: flex;
+            position:absolute;
+            left: 54%;
+         
+            bottom:90px;
+            transform: translate(-50%);
+            width:500px;
+            height: 50px;
+        }
+        .bottom_1_words{
+            line-height: 50px;
+            float: left;
+            margin-right: 20px;
+            color:rgba(0, 0, 0, 0.318);
+            text-decoration: underline;
+        }
+        .bottom_word2{
+            display: flex;
+            position:absolute;
+            left: 55%;
+            bottom:10px;
+            transform: translate(-50%);
+            width:800px;
+            height: 50px;
+        }
+        .bottom_2_words{
+            line-height: 50px;
+            float: left;
+            margin-right: 20px;
+            color:rgba(0, 0, 0, 0.318);
+            
+        }
+        .bottom_3_words{
+            line-height: 50px;
+            float: left;
+            margin-right: 20px;
+            color:rgba(0, 0, 0, 0.318);
+            text-decoration: underline;
+        }
+
+
+
+
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 右上角 -->
+    <div class="right1">更多产品</a></div>
+    <div class="right2">设置</div>
+    <div class="right2">登录</div>
+    <div class="right3">
+        <a href="https://xueshu.baidu.com/" target="_blank">学术</a>
+    </div>
+    <div class="right3">
+        <a href="https://tieba.baidu.com/index.html" target="_blank">贴吧</a>
+    </div>
+    <div class="right3">
+        <a href="https://haokan.baidu.com/?sfrom=baidu-top" target="_blank">视频</a>
+    </div>
+    <div class="right3">
+        <a href="https://map.baidu.com" target="_blank">地图</a>
+    </div>
+    <div class="right4">
+        <a href="https://www.hao123.com/?src=from_pc_logon" target="_blank">hao123</a>
+    </div>
+    <div class="right3">
+        <a href="http://news.baidu.com/" target="_blank">新闻</a>
+    </div>
+    <img class="picture1" src=../pictures/baidu.png title="嘿嘿"/>
+    <!-- 中间部分 -->
+    <div class="mid1"> 
+        <form>
+            <input type="text" class="text1">
+            <input type="submit" value="百度一下" class="submit1">
+        </form>
+    </div>
+    <!-- 后面的部分写在盒子里面 -->
+    <div class="bottom_picture">
+        <img src="../pictures/二维码.png" alt="error" class="picture2">
+        <div class="words1">下载百度APP</div>
+        <div class="words2">有事搜一搜，没事看一看</div>
+    </div>
+    <div class="bottom_word1">
+        <div class="bottom_1_words">把百度作为首页</div>
+        <div class="bottom_1_words">关于百度</div>
+        <div class="bottom_1_words">About Baidu</div>
+        <div class="bottom_1_words">百度推广</div>
+    </div>
+    <div class="bottom_word2">
+        <div class="bottom_2_words">©2022_Baidu</div>
+        <div class="bottom_3_words">使用百度前必读</div>
+        <div class="bottom_3_words">意见反馈</div>
+        <div class="bottom_2_words">xxx证19123151013号</div>
+        <div class="bottom_2_words">YY制作_2569630663号</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<style type="text/css">
+    #box{
+        color: aqua;
+        border: 1px dashed red;
+        width:120px;
+        height:100px;
+        background-color: pink;
+        }
+    a:link{color: blue;text-decoration: none;}
+    a:visited{color: rgb(93, 153, 51);text-decoration: none;}
+    .stress1{
+        color:red;
+    }
+    .stress2{
+        color:pink;
+    }
+    .stress3{
+        color:blue;
+    }
+    .stress4{
+        color:green;
+    }
+    .stress5{
+        color:aqua;
+    }
+    .text{
+        width:300px;
+    }
+    .sub{
+        align:center;
+    }
+    
+        
+    .td1{
+        width:400px;
+        height: 40px;
+        text-align: center;
+    }
+    .td2{
+        width:400px;
+        height: 40px;
+        text-align: center;  
+    }
+    .picture1{
+        height: 200px;
+        width: 200px;
+
+    }
+    
+    
+    
+</style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>
+        这是我的二级标题
+    </h2>
+        <p>
+            这是第一个段落
+        </p>
+    <h3>
+        这是我的三级标题
+    </h3>
+        <p>
+            这里插入一个图片
+        </p>
+        <img class="picture1" src=../pictures/1111.png title="嘿嘿"/>
+        <div id="box">
+            我是一个小box
+        </div>
+    <a href="https://mp.csdn.net/mp_blog/manage/article?spm=1010.2135.3001.5448" target="_blank" >这是我的博客（哈哈哈没什么东西，是个小辣鸡）</a>
+    <ul>
+        <li class="stress1">我</li>
+        <li class="stress2">是</li>
+        <li class="stress3">无</li>
+        <li class="stress4">序</li>
+        <li class="stress5">表</li>
+    </ul>
+    <form class="text">
+        <input type="text" placeholder="没卵用输入框">
+        <input type="submit" value="没卵用按钮"
+    </form>
+    
+    <p style="color:red">下面是一个表单</p>
+
+    <table border=1px class="table" >
+        <tr>
+            <td class="td1">用户名:</td>
+            <td ><input type="text"></td>
+        </tr>
+        <tr>
+            <td class="td2">密码:</td>
+            <td ><input type="password"></td>
+        </tr>
+        <tr>
+            <td align="center" colspan="2"><input type="submit" value="提交"> <input type="reset" value="重置"></td>
+        </tr>
+    </table>
+    <br/>
+    <br/>
+    <p>下面是你的自我介绍</p>
+    <form>
+        性别
+        <input type="radio" name="sex">🚹
+        <input type="radio" name="sex">🚺
+        城市
+        <select>
+            <option value="重庆" selected="selected">重庆</option>
+            <option value="福州">福州</option>
+        </select>
+        <br/>
+        爱好：
+        <input type="checkbox" name="checkbox1" value="run">跑步
+        <input type="checkbox" name="checkbox2" value="game">游戏
+        <br/>
+        <label>目标：</label>
+        <textarea cols="50" rows="10" >在这里输入内容...</textarea>
+    </form>
+   
+</body>
+</html>
