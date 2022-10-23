@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style type="text/css">
+        body{
+            display: flex;
+            align-items: center;
+        }
+        div{
+            border: 1px solid black;
+        }
+        .box1{
+            margin: 20px;
+            padding: 0px;
+            width: 250px;
+            height: 500px;
+            flex:0 0 auto;
+            
+        }
+        .box2{
+            margin: 20px;
+            padding: 0px;
+            width: 250px;
+            height: 300px;
+            flex: 1 1 auto;
+            transition-duration:2s;
+        }
+
+        
+        .box3{
+            margin: 20px;
+            padding: 0px;
+            width: 250px;
+            height: 100px;
+            align-self:flex-start;
+            transition-duration:2s;
+            
+        }
+        
+        .box4{
+            margin: 20px;
+            padding: 0px;
+            width: 250px;
+            height: 600px; 
+            
+        }
+       
+
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box1">
+        一号盒子
+        <p>我始终保持原大小，不缩放。</p>
+      </div>
+      <div class="box2">
+        二号盒子
+        <p>浏览器界面变宽时，我占满其他元素剩下的所有空间</p>
+      </div>
+      <div class="box3">
+        三号盒子
+        <p>我和四号盒子的顶部对齐</p>
+      </div>
+      <div class="box4">
+        四号盒子
+        <p>浏览器界面变窄时，我缩窄的速度要比二、三号盒子快</p>
+      </div>
+</body>
+</html>
