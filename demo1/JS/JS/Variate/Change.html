@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //转化为字符串
+        var num = 10
+        console.log(num.toString());
+        console.log(String(num));
+        console.log(num+'');  //隐式转化
+
+        //转化为数字
+        var age = prompt('请输入年龄')
+        console.log(parseInt(age)); //转化为整数（小数取整）
+        console.log(parseInt('100px')); //去掉单位
+        console.log(parseFloat(age)); //转化为小数，和Int一致
+        console.log(Number(age)); //强制转化
+        console.log("100"-0) //隐式转化，乘除都可以，用加号不行
+
+
+
+    </script>
+</head>
+<body>
+</body>
+</html>
