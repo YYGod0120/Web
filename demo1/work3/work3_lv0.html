@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //创建一个对象
+        let obj1 = new Object();
+        obj1.name = 'YY';
+        obj1.age = '19';
+        console.log(obj1);
+        //使用对象字面量
+        let obj2 = {
+            name : 'YYY',
+            age : '18'
+        }
+        console.log(obj2);
+        //使用构造函数创建一个对象
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+            this.sayname = function(){
+                console.log(this.name);
+            }
+        }
+        const p1 = new Person('YY',18)
+        const p2 = new Person('YYY','28')
+        console.log(p1);
+        console.log(p2);
+        p1.sayname()
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
