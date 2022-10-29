@@ -7,14 +7,15 @@
     <title>Document</title>
     <script>
         
-        function append(test,array){
+        function myPush(test,array){
             
             for(let i = 0;i < array.length; i++){
                 test[test.length] = array[i];
             }
         return test;  
         }
-        console.log(append([1],[1,2,3]));
+        let arr = [1];
+        console.log(myPush(arr,[2]));
         
     </script>
 </head>
