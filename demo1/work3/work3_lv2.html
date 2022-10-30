@@ -20,14 +20,24 @@
             }
         }
         return ans;
-        
     }
     console.log(flatten1(arr));
    
 
     //reduce函数写法
-    
-            
+    function flatten2(arr){
+        
+        return arr.reduce(function(ans,cur){
+            if(typeof cur=="number"){
+                 return ans.concat(cur);
+            }
+            else{
+                return ans.concat(flatten2(cur));
+            }
+        },[])
+        
+    }
+    console.log(flatten2(arr));       
    
 
     //toString方法
