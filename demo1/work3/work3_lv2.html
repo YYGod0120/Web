@@ -44,7 +44,8 @@
     function flatten3(arr){
         let newArr = arr.toString().split(',');
         for(let i = 0;i < newArr.length;i++){
-            newArr[i] = newArr[i]-0;
+            newArr[i] = Number(newArr[i]);
+            
         }
         
         return newArr;
