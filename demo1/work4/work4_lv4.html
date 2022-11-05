@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //浅拷贝是创建一个新对象然后该对象指向原对象的地址
+        const a = {
+            name:'yy',
+            age:18
+        }
+        let b = a;  //改变指针的指向
+        b.name = 'yyy';
+        console.log(a);
+        console.log(b);
+        //深拷贝与浅拷贝不同是在内存中开辟一个地方放新对象且该对象的内容与原对象一致
+        //先开辟一个内存地址，然后一个一个复制相对应的属性
+        const c = {
+            name:'yy',
+            age:19
+        }
+        let d = new Object()  //开辟地址
+        d.name = c.name;  //复制属性
+        d.age = c.age;
+   
+        d.name = 'yyyy';
+        console.log(c);
+        console.log(d);
+    </script>
+</body>
+</html>

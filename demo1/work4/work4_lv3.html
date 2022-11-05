@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let equal = (a,b) => {
+            if(a.type === b.type && a === b){
+                return true;
+            }
+            else{
+                if(a===null&&b===undefined || a===undefined&b===null){
+                    return true;
+                }
+                if(typeof a==="number"&&typeof b==="string"){
+                    return a===Number(b);
+                }
+                if(typeof b==="number"&&typeof a==="string"){
+                    return Number(a)===b;
+                }
+                if(typeof a==="boolean"&&typeof b==="number"){
+                    return Number(a)===b;
+                }
+                if(typeof b==="boolean"&&typeof a==="number"){
+                    return Number(b)===a;
+                }
+                if(typeof a==="boolean"&&typeof b==="string"){
+                    return Number(b)===Number(a);
+                }
+                if(typeof b==="boolean"&&typeof a==="string"){
+                    return Number(a)===Number(b);
+                }
+                if(typeof a==="object"&&typeof b!="object"){
+                    return false;
+                }
+                if(typeof b==="object"&&typeof a!="object"){
+                    return false;
+                }
+                if(typeof b==="object"&&typeof a==="object"){
+                    return a===b;
+                }
+                else{
+                    return false;
+                }   
+                }
+            }
+            const a = {
+                name:'cccc'
+            }
+            console.log(equal(1,a));
+        
+    </script>
+</body>
+</html>
