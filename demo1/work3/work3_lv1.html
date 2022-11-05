@@ -7,15 +7,15 @@
     <title>Document</title>
     <script>
         
-        function myPush(test,array){
+        function myPush(test,...args){
             
-            for(let i = 0;i < array.length; i++){
-                test[test.length] = array[i];
+            for(let i = 0;i < args.length; i++){
+                test[test.length] = args[i];
             }
         return test;  
         }
-        let arr = [1];
-        console.log(myPush(arr,[2]));
+        let arr = [12] 
+        console.log(myPush(arr,1,2,3,5,4));
         
     </script>
 </head>
