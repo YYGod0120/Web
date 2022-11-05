@@ -9,7 +9,7 @@
 <body>
     <script>
         //循环
-        function toSum(n){
+        const toSum = n => {
             let ans = 0;
             for(let i = 0;i <= n;i++){
                 ans += i;
@@ -17,7 +17,7 @@
             return ans;
         }
         //递归
-        let toSum2 = function(n){
+        const toSum2 = n => {
             if(n>0){
                 return n+toSum2(n-1);
             }
