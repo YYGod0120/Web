@@ -24,8 +24,9 @@
             age:19
         }
         let d = new Object()  //开辟地址
-        d.name = c.name;  //复制属性
-        d.age = c.age;
+        for(let key in c){
+            d[key] = c[key];
+        }
    
         d.name = 'yyyy';
         console.log(c);
