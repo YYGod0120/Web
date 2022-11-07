@@ -7,7 +7,7 @@
     <title>Document</title>
     <script>
         //创建一个对象
-        let obj1 = new Object();
+        let obj1 = new Object(); //等同于obj1={};
         obj1.name = 'YY';
         obj1.age = '19';
         console.log(obj1);
@@ -18,12 +18,14 @@
         }
         console.log(obj2);
         //使用构造函数创建一个对象
-        function Person(name,age){
+        function Person(name,age){ //首字母大写
+            //this = {}
             this.name = name;
             this.age = age;
             this.sayname = function(){
                 console.log(this.name);
             }
+            //return this
         }
         const p1 = new Person('YY',18)
         const p2 = new Person('YYY','28')
