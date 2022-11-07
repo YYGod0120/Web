@@ -9,6 +9,7 @@
 <body>
     <script>
         //浅拷贝是创建一个新对象然后该对象指向原对象的地址
+        //浅拷贝1
         const a = {
             name:'yy',
             age:18
@@ -17,7 +18,23 @@
         b.name = 'yyy';
         console.log(a);
         console.log(b);
+
+        
+        //浅拷贝2 Object.assign(new_obj,obj1,obj2,...)
+        c2 = {
+            name:'yyyyy',
+            age:19,
+        }
+        let d2 = Object.assign({},c2) //创建一个空的对象然后把c2复制进去
+        d2.age = 99;
+        console.log(c2);
+        console.log(d2);
+
+
+
         //深拷贝与浅拷贝不同是在内存中开辟一个地方放新对象且该对象的内容与原对象一致
+
+        //深拷贝1
         //先开辟一个内存地址，然后一个一个复制相对应的属性
         const c = {
             name:'yy',
@@ -27,10 +44,10 @@
         for(let key in c){
             d[key] = c[key];
         }
-   
         d.name = 'yyyy';
         console.log(c);
         console.log(d);
+        
     </script>
 </body>
 </html>
