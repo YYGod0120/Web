@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        .wrap{
+            width: 536.8px;
+            position: absolute;
+            left: 50%;
+            bottom: 10%;
+            transform: translate(-50%,-50%);
+            
+        }
+        p{ 
+            display: flex;
+            justify-content:flex-end;
+            margin: 5px;
+            color:orange;
+            font-weight:bold;
+        }
+        .text textarea{
+            resize: none;
+            padding: 5px;
+            border: 3px solid #cccc; 
+            
+	        color: #333;
+        }
+        .bto{
+            position:absolute;
+            left: 450px;
+            margin: 5px;
+            color:white;
+            border: none;
+            border-radius: 6px;
+            width: 80px;
+            height: 45px;
+           
+	        background-color: #ffc09f;
+            
+            font-size: 18px; 
+        }
+       
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap">
+        
+            <p>评论区</p>
+        
+        <div class="text">
+            <textarea cols="70" rows="8"></textarea>
+        </div>
+        
+            <input type="button" value='发布' class="bto" >
+        
+    </div>
+   
+</body>
+</html>

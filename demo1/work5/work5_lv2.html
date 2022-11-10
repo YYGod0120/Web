@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lv2</title>
+</head>
+
+<body>
+
+    <div>
+        <b>请选择您的爱好</b>
+        <br />
+    </div>
+
+    <div id="divlist">
+        <input type="checkbox" value="内卷" class="check">内卷
+        <input type="checkbox" value="疯狂内卷" class="check">疯狂内卷
+        <input type="checkbox" value="拼命内卷" class="check">拼命内卷
+        <input type="checkbox" value="使劲内卷" class="check">使劲内卷
+        <br />
+        <input type="button" value="全选" class="bt1">
+        <input type="button" value="全不选" class="bt2">
+        <input type="button" value="反选" class="bt3">
+    </div>
+    <script>
+        //获取元素
+        const button1 = document.querySelector('.bt1');
+        const button2 = document.querySelector('.bt2');
+        const button3 = document.querySelector('.bt3');
+        const checkboxs = document.querySelectorAll('.check');
+        console.log(checkboxs);
+        //绑定事件
+        //全选
+        button1.addEventListener('click',function () {
+            for(let checkbox of checkboxs){
+                if(checkbox.checked===false)
+                checkbox.checked = true;   
+            }
+        })
+
+
+        //全不选
+        button2.addEventListener('click',function () {
+            for(let checkbox of checkboxs){
+                if(checkbox.checked===true)
+                checkbox.checked = false;
+            }
+        })
+
+        //反选
+        button3.addEventListener('click',function () {
+            for(let checkbox of checkboxs){
+                if(checkbox.checked===false){
+                checkbox.checked = true;
+                }
+                else{
+                    checkbox.checked = false;
+                }
+                
+            }
+        })
+    </script>
+</body>
+
+</html>
