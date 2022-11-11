@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <style>
-        .wrap{
+        .wrap1{
             width: 536.8px;
             position: absolute;
             left: 50%;
@@ -9,18 +9,33 @@
             transform: translate(-50%,-50%);
             
         }
-        p{ 
+        .wrap2{
+            width: 536.8px;
+            height: 400px;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            
+        }
+        .p1{ 
             display: flex;
             justify-content:flex-end;
             margin: 5px;
             color:orange;
             font-weight:bold;
         }
+        .p2{
+            color: orange;
+            text-align:center;
+            font-size: 20px;
+        }
         .text textarea{
             resize: none;
             padding: 5px;
             border: 3px solid #cccc; 
             
+            outline-color:orange;
+
 	        color: #333;
         }
         .bto{
@@ -29,7 +44,7 @@
             margin: 5px;
             color:white;
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             width: 80px;
             height: 45px;
            
@@ -46,17 +61,56 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="wrap">
+    <!-- 评论区 -->
+    <div class="wrap1">
         
-            <p>评论区</p>
+            <p class="p1">评论区</p>
         
         <div class="text">
-            <textarea cols="70" rows="8"></textarea>
+            <textarea  cols="70" rows="8" class="area"></textarea>
         </div>
         
             <input type="button" value='发布' class="bto" >
-        
+            <script>
+                
+             
+                const but = document.querySelector('.bto');
+                const area = document.querySelector('.area')
+                const p1 = document.querySelector('.p1')
+                const mes = document.querySelector('.mes')
+                area.addEventListener('input',function(){
+                    able_number = 100-area.value.length;
+                    p1.innerText = '还剩下' + able_number +'个字';
+                    
+                    but.style.background = 'orange';
+                })
+                area.addEventListener('blur',function(){
+                    
+                    but.style.background = '#ffc09f';
+                    if(area.value.length != 0){
+                    but.style.background = 'orange';
+                    }
+                    else {
+                    p1.innerText = '评论区';
+                    }
+                
+                })
+                but.addEventListener('click',function(){
+                    if(area.value.length != 0){
+                        document.createTextNode(area.value)
+                    }
+                })
+            </script>
     </div>
-   
+   <!-- 留言板 -->
+    <div class="wrap2">
+
+        <p class="p2">留言板</p>
+        <p class="mes">xxxx</p>
+        <p class="mes">我叫叶焱，我是这个的制作者</p>
+        <p class="mes">xxxx</p>
+
+
+    </div>
 </body>
 </html>
