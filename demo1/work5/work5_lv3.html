@@ -77,39 +77,60 @@
                 const but = document.querySelector('.bto');
                 const area = document.querySelector('.area')
                 const p1 = document.querySelector('.p1')
-                const mes = document.querySelector('.mes')
+                
+                
                 area.addEventListener('input',function(){
                     able_number = 100-area.value.length;
                     p1.innerText = '还剩下' + able_number +'个字';
-                    
                     but.style.background = 'orange';
-                })
+                },false)
                 area.addEventListener('blur',function(){
                     
-                    but.style.background = '#ffc09f';
                     if(area.value.length != 0){
                     but.style.background = 'orange';
                     }
                     else {
                     p1.innerText = '评论区';
+                    but.style.background = '#ffc09f';
                     }
                 
-                })
-                but.addEventListener('click',function(){
-                    if(area.value.length != 0){
-                        document.createTextNode(area.value)
-                    }
-                })
+                },false)
+                
+            
+                
             </script>
     </div>
    <!-- 留言板 -->
     <div class="wrap2">
 
         <p class="p2">留言板</p>
-        <p class="mes">xxxx</p>
-        <p class="mes">我叫叶焱，我是这个的制作者</p>
-        <p class="mes">xxxx</p>
-
+        <div class="mes">
+            
+        </div>
+        <script>
+            const mes = document.querySelector('.mes');
+           
+            
+            
+            but.addEventListener('click',function(){
+                    if(area.value.length != 0){
+                        
+                        document.createTextNode(area.value);
+                        
+                        p1.innerText = '评论区';
+                        but.style.background = '#ffc09f';
+                        
+                        //创建节点  插入
+                        let new_mes = document.createElement('p');
+                        new_mes.innerText = area.value;
+                        
+                        console.log(new_mes.innerText);
+                        mes.appendChild(new_mes);
+                        
+                        area.value=''
+                    }
+                },false)
+        </script>
 
     </div>
 </body>

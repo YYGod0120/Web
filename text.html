@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <style type="text/css">
-        div{
-            width: 500px;
-            height: 300px;
-            background-color: blue;
-        }
+       
     </style>
 <head>
     <meta charset="UTF-8">
@@ -20,15 +16,25 @@
     <div id="pop-up-window"></div>
 </body>
 
-<script>
-    let body = document.querySelector('body');
-    let popUpWindow = document.getElementById('pop-up-window');
-    body.addEventListener('click', function () {
-        alert('是的')
-    }, false)
-    popUpWindow.addEventListener('click', function () {
-        alert('不是的')  //在弹窗内部点击时阻止事件传播，因此不会触发body的click事件    
-    }, false)
-</script>
 
+<div class="father">
+    father
+    <div class="child">
+        child
+    </div>
+</div>
+
+<script>
+let father = document.querySelector('.father')
+let child = document.querySelector('.child')
+
+//事件捕获
+// father.addEventListener('click', () => { alert('father') }, true)
+// child.addEventListener('click', () => { alert('child') }, true)
+
+// 
+// father.addEventListener('click', () => { alert('father') }, false)   
+// child.addEventListener('click', () => { alert('child') }, false)
+
+</script>
 </html>
