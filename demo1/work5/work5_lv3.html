@@ -17,6 +17,13 @@
             transform: translate(-50%);
             
         }
+        .wrap-color{
+            display: flex;
+            align-items: center;
+            position: relative;
+            top: 10px;
+            width: 200px;
+        }
         .mes{
             display: flex;
             justify-content: space-between;
@@ -34,6 +41,10 @@
             color: orange;
             text-align:center;
             font-size: 20px;
+        }
+        .color-p{
+            
+            margin: 5px;
         }
         
         img{
@@ -102,6 +113,13 @@
         
             <input type="button" value='发布' class="bto" >
             <input type="button" value="颜色" class="bto-color">
+            <div class="wrap-color">
+                <!-- <img src="/demo1/pictures/blue.png" class="color-p">
+                <img src="/demo1/pictures/red.png" class="color-p">
+                <img src="/demo1/pictures/yellow.png" class="color-p">
+                <img src="/demo1/pictures/green.png" class="color-p"> -->
+            </div>
+            
             <script>
         
                 const but = document.querySelector('.bto');
@@ -114,7 +132,7 @@
                     but.style.background = 'orange';
                 },false)
                 area.addEventListener('blur',function(){
-                    
+                    area.style.color = 'black';
                     if(area.value.length != 0){
                     but.style.background = 'orange';
                     }
@@ -138,10 +156,32 @@
         </div>
         <script>
             const wrap_mes = document.querySelector('.wrap_mes');
-            
+            const colors = ['blue','red','yellow','green']
             console.log(wrap_mes);
-           
+                // <!-- 颜色功能 -->
             
+            const srcs = ["/demo1/pictures/blue.png","/demo1/pictures/red.png","/demo1/pictures/yellow.png","/demo1/pictures/green.png"]
+            const botcolor = document.querySelector('.bto-color');
+            const wrapcolor = document.querySelector('.wrap-color');
+            const wrap1 = document.querySelector('.wrap1');
+            let stop = 0;
+            botcolor.addEventListener('click',function(){
+                if(stop == 0){
+                    for(let i = 0;i < 4;i++){
+                        let color = document.createElement('img');
+                        color.src = srcs[i];
+                        color.classList.add("color-p");
+                        console.log(color);
+                        wrapcolor.appendChild(color);
+                        color.addEventListener('click',function(){
+                            area.style.color = colors[i]
+                        })
+                }
+                
+                stop = 1;
+                wrap1.removeChild(botcolor);
+            }
+            })
             //发布
             but.addEventListener('click',function(){
                     if(area.value.length != 0){
@@ -156,6 +196,7 @@
                         mes.classList.add("mes");
                         console.log(mes); //创建父盒子
                         let p_mes = document.createElement('p');
+                        p_mes.style.color = area.style.color;
                         p_mes.classList.add("p_mes");
                         p_mes.innerText = area.value; //创建段落元素
                         console.log(p_mes);
@@ -173,14 +214,15 @@
                         //删除功能
 
                         img.addEventListener('click',function(){
-                        const mes = img.parentNode
-                        wrap_mes.removeChild(mes);
+                            const mes = img.parentNode
+                            wrap_mes.removeChild(mes);
                     })
                     }
                 },false);
-                
-                
+            
         </script>
+        
+        
 
     </div>
 </body>
