@@ -17,6 +17,12 @@
             transform: translate(-50%);
             
         }
+        .mes{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 30px;
+        }
         .p1{ 
             display: flex;
             justify-content:flex-end;
@@ -28,6 +34,15 @@
             color: orange;
             text-align:center;
             font-size: 20px;
+        }
+        
+        img{
+            height: 20px;
+            width: 20px;
+            position: relative;
+            top: 2.5px;
+            
+
         }
         .text textarea{
             resize: none;
@@ -52,6 +67,18 @@
             
             font-size: 18px; 
         }
+        .bto-color{
+            position:absolute;
+            left: 350px;
+            margin: 5px;
+            color:white;
+            border: none;
+            border-radius: 8px;
+            width: 80px;
+            height: 45px;
+            background-color: orange;
+            font-size: 18px; 
+        }
        
     </style>
 <head>
@@ -67,17 +94,19 @@
             <p class="p1">评论区</p>
         
         <div class="text">
-            <textarea  cols="70" rows="8" class="area"></textarea>
+            <form action="">
+                <textarea  cols="70" rows="8" class="area"></textarea>
+            </form>
+            
         </div>
         
             <input type="button" value='发布' class="bto" >
+            <input type="button" value="颜色" class="bto-color">
             <script>
-                
-             
+        
                 const but = document.querySelector('.bto');
-                const area = document.querySelector('.area')
-                const p1 = document.querySelector('.p1')
-                
+                const area = document.querySelector('.area');
+                const p1 = document.querySelector('.p1');
                 
                 area.addEventListener('input',function(){
                     able_number = 100-area.value.length;
@@ -104,14 +133,16 @@
     <div class="wrap2">
 
         <p class="p2">留言板</p>
-        <div class="mes">
+        <div class="wrap_mes">
             
         </div>
         <script>
-            const mes = document.querySelector('.mes');
+            const wrap_mes = document.querySelector('.wrap_mes');
+            
+            console.log(wrap_mes);
            
             
-            
+            //发布
             but.addEventListener('click',function(){
                     if(area.value.length != 0){
                         
@@ -121,16 +152,33 @@
                         but.style.background = '#ffc09f';
                         
                         //创建节点  插入
-                        let new_mes = document.createElement('p');
-                        new_mes.innerText = area.value;
-                        
-                        console.log(new_mes.innerText);
-                        mes.appendChild(new_mes);
-                        
-                        area.value=''
-                    }
-                },false)
+                        let mes = document.createElement('div');
+                        mes.classList.add("mes");
+                        console.log(mes); //创建父盒子
+                        let p_mes = document.createElement('p');
+                        p_mes.classList.add("p_mes");
+                        p_mes.innerText = area.value; //创建段落元素
+                        console.log(p_mes);
+                        let img = document.createElement('img');
+                        img.src = "/demo1/pictures/xxxxx.png" ;
+                        img.title = "删除";
+                        console.log(img); //创建图片元素
 
+                        mes.appendChild(p_mes);
+                        mes.appendChild(img);
+                        // 父盒子直接插入子元素
+                        wrap_mes.append(mes);
+                        area.value=''
+
+                        //删除功能
+
+                        img.addEventListener('click',function(){
+                        const mes = img.parentNode
+                        wrap_mes.removeChild(mes);
+                    })
+                    }
+                },false);
+                
                 
         </script>
 
