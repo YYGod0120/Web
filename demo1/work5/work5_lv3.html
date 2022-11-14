@@ -120,32 +120,6 @@
                 <img src="/demo1/pictures/green.png" class="color-p"> -->
             </div>
             
-            <script>
-        
-                const but = document.querySelector('.bto');
-                const area = document.querySelector('.area');
-                const p1 = document.querySelector('.p1');
-                
-                area.addEventListener('input',function(){
-                    able_number = 100-area.value.length;
-                    p1.innerText = '还剩下' + able_number +'个字';
-                    but.style.background = 'orange';
-                },false)
-                area.addEventListener('blur',function(){
-                    area.style.color = 'black';
-                    if(area.value.length != 0){
-                    but.style.background = 'orange';
-                    }
-                    else {
-                    p1.innerText = '评论区';
-                    but.style.background = '#ffc09f';
-                    }
-                
-                },false)
-                
-            
-                
-            </script>
     </div>
    <!-- 留言板 -->
     <div class="wrap2">
@@ -154,76 +128,111 @@
         <div class="wrap_mes">
             
         </div>
-        <script>
-            const wrap_mes = document.querySelector('.wrap_mes');
-            const colors = ['blue','red','yellow','green']
-            console.log(wrap_mes);
-                // <!-- 颜色功能 -->
-            
-            const srcs = ["/demo1/pictures/blue.png","/demo1/pictures/red.png","/demo1/pictures/yellow.png","/demo1/pictures/green.png"]
-            const botcolor = document.querySelector('.bto-color');
-            const wrapcolor = document.querySelector('.wrap-color');
-            const wrap1 = document.querySelector('.wrap1');
-            let stop = 0;
-            botcolor.addEventListener('click',function(){
-                if(stop == 0){
-                    for(let i = 0;i < 4;i++){
-                        let color = document.createElement('img');
-                        color.src = srcs[i];
-                        color.classList.add("color-p");
-                        console.log(color);
-                        wrapcolor.appendChild(color);
-                        color.addEventListener('click',function(){
-                            area.style.color = colors[i]
-                        })
-                }
-                
-                stop = 1;
-                wrap1.removeChild(botcolor);
-            }
-            })
-            //发布
-            but.addEventListener('click',function(){
-                    if(area.value.length != 0){
-                        
-                        document.createTextNode(area.value);
-                        
-                        p1.innerText = '评论区';
-                        but.style.background = '#ffc09f';
-                        
-                        //创建节点  插入
-                        let mes = document.createElement('div');
-                        mes.classList.add("mes");
-                        console.log(mes); //创建父盒子
-                        let p_mes = document.createElement('p');
-                        p_mes.style.color = area.style.color;
-                        p_mes.classList.add("p_mes");
-                        p_mes.innerText = area.value; //创建段落元素
-                        console.log(p_mes);
-                        let img = document.createElement('img');
-                        img.src = "/demo1/pictures/xxxxx.png" ;
-                        img.title = "删除";
-                        console.log(img); //创建图片元素
-
-                        mes.appendChild(p_mes);
-                        mes.appendChild(img);
-                        // 父盒子直接插入子元素
-                        wrap_mes.append(mes);
-                        area.value=''
-
-                        //删除功能
-
-                        img.addEventListener('click',function(){
-                            const mes = img.parentNode
-                            wrap_mes.removeChild(mes);
-                    })
-                    }
-                },false);
-            
-        </script>
+        
         
         
 
     </div>
 </body>
+
+
+<script>
+        
+    const but = document.querySelector('.bto');
+    const area = document.querySelector('.area');
+    const p1 = document.querySelector('.p1');
+    
+    area.addEventListener('input',function(){
+        able_number = 100-area.value.length;
+        p1.innerText = '还剩下' + able_number +'个字';
+        but.style.background = 'orange';
+    },false)
+    area.addEventListener('blur',function(){
+        area.style.color = 'black';
+        if(area.value.length != 0){
+        but.style.background = 'orange';
+        }
+        else {
+        p1.innerText = '评论区';
+        but.style.background = '#ffc09f';
+        }
+    
+    },false)
+    const wrap_mes = document.querySelector('.wrap_mes');
+    const colors = ['blue','red','yellow','green']
+    console.log(wrap_mes);
+        // <!-- 颜色功能 -->
+    const srcs = ["/demo1/pictures/blue.png","/demo1/pictures/red.png","/demo1/pictures/yellow.png","/demo1/pictures/green.png"]
+    const botcolor = document.querySelector('.bto-color');
+    const wrapcolor = document.querySelector('.wrap-color');
+    const wrap1 = document.querySelector('.wrap1');
+    let stop = 0;
+    botcolor.addEventListener('click',function(){
+        if(stop == 0){
+            for(let i = 0;i < 4;i++){
+                let color = document.createElement('img');
+                color.src = srcs[i];
+                color.classList.add("color-p");
+                console.log(color);
+                wrapcolor.appendChild(color);
+                color.addEventListener('click',function(){
+                    area.style.color = colors[i]
+                })
+        }
+        
+        stop = 1;
+        wrap1.removeChild(botcolor);
+    }
+    })
+    //发布
+    const release = () =>{
+        if(area.value.length != 0){
+                
+                document.createTextNode(area.value);
+                
+                p1.innerText = '评论区';
+                but.style.background = '#ffc09f';
+                
+                //创建节点  插入
+                let mes = document.createElement('div');
+                mes.classList.add("mes");
+                console.log(mes); //创建父盒子
+                let p_mes = document.createElement('p');
+                p_mes.style.color = area.style.color;
+                p_mes.classList.add("p_mes");
+                p_mes.innerText = area.value; //创建段落元素
+                console.log(p_mes);
+                let img = document.createElement('img');
+                img.src = "/demo1/pictures/xxxxx.png" ;
+                img.title = "删除";
+                console.log(img); //创建图片元素
+
+                mes.appendChild(p_mes);
+                mes.appendChild(img);
+                // 父盒子直接插入子元素
+                wrap_mes.append(mes);
+                area.value=''
+
+                //删除功能
+
+                img.addEventListener('click',function(){
+                    const mes = img.parentNode
+                    wrap_mes.removeChild(mes);
+            })
+            }
+    }
+
+
+    but.addEventListener('click',release,false);
+    document.addEventListener('keydown',function(e){
+        let keyword = e.keyCode;
+        if(keyword==13) {
+            console.log('发送');
+            release()
+            e.preventDefault();
+       }
+
+    })
+    
+</script>
 </html>
