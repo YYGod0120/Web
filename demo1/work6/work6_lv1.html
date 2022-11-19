@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style type="text/css">
+        .tra{
+            transform: translateX(200px);
+            transition-duration: 1s;
+        }
+        .wrap{
+            width: 500px;
+            height: 300pxS;
+           
+        }
+        .box1{
+            width: 80px;
+            height: 80px;
+            border-radius: 40px;
+            background-color: aqua;
+            
+            
+        }
+        
+        .box2{
+            width: 80px;
+            height: 80px;
+            border-radius: 40px;
+            background-color: rgb(255, 0, 0);
+        }
+        .box3{
+            width: 80px;
+            height: 80px;
+            border-radius: 40px;
+            background-color: rgb(187, 255, 0);
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+    
+</body>
+<script>
+    let box1 = document.querySelector('.box1')
+    let box2 = document.querySelector('.box2')
+    let box3 = document.querySelector('.box3')
+    console.log(box1);
+    console.log(box2);
+    console.log(box3);
+    // setTimeout 写法
+    // const transform = () => {
+    //     setTimeout(()=>{
+    //         box1.classList.add('tra')
+    //         setTimeout(()=>{
+    //             box2.classList.add('tra')
+    //             setTimeout(()=>{
+    //                 box3.classList.add('tra')
+    //             },1000)
+    //         },1000)
+    //     },1000)
+    // }
+    // transform()
+    
+
+    // // Promise 写法
+    // const transform = (box,x) => {
+    //     setTimeout(()=>{
+    //         box.classList.add('tra')
+    //     },x)
+    // }
+
+    // let  p = new Promise((resolve,reject) => {
+    //     resolve(transform(box1,1000))
+        
+    // }).then((value)=>{
+    //     transform(box2,2000)
+    // },(err)=>{
+    //     console.log('第二个盒子出错啦');
+    // }).then((value)=>{
+    //     transform(box3,3000)
+    // },(err2)=>{console.log('第三个盒子出错啦');})
+
+    //async await方法
+    let step = (box,x) => {
+        return new Promise((resolve)=>{
+            setTimeout(()=>{
+                resolve(box.classList.add('tra'));
+            },x) 
+        })
+    }
+    
+    async function demo() {
+        await step(box1,1000);
+        await step(box2,1000);
+        await step(box3,1000);
+        return '结束'
+    }
+    demo().then((value)=>{
+        console.log(value);
+    })
+
+</script>
+</html>
