@@ -46,8 +46,8 @@
     function ins_word(words){
         setTimeout(()=>{
             if(words.length > 0){
-            word.innerText += words.substring(0,1);
-            return ins_word(words.slice(1,words.length))
+                word.innerText += words.substring(0,1);
+                return ins_word(words.slice(1,words.length))
             }
             else{
                 console.log('over');
