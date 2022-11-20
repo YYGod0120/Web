@@ -54,7 +54,8 @@
             }
         },500)
         
-    }
+    }                       
+    
 
 
     let insert = () => {
@@ -62,17 +63,19 @@
             setTimeout(()=>{
                 resolve(ins_word(text));
             },500)
+
         })
     }
     
-    async function demo() {
-        await insert()
-        return 'over'
-    }
+    insert(text)
+    // async function demo() {
+    //     await insert()
+    //     return 'over'
+    // }
 
-    demo().then((value)=>{
-        console.log(value);
-    })
+    // demo().then((value)=>{
+    //     console.log(value);
+    // })
 
 </script>
 </html>
