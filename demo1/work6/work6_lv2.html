@@ -58,24 +58,32 @@
     
 
 
-    let insert = () => {
+    let insert = (words) => {
         return new Promise((resolve)=>{
             setTimeout(()=>{
-                resolve(ins_word(text));
+                resolve(ins_word(words));
             },500)
 
         })
     }
     
-    insert(text)
-    // async function demo() {
-    //     await insert()
-    //     return 'over'
-    // }
+  
+    async function demo() {
+        try{
+            await insert(text)
+            return 'over'
+        }
+        catch(err){
+            console.log(err);
+            alert('出了点问题');
+        }
+    }
+    
 
-    // demo().then((value)=>{
-    //     console.log(value);
-    // })
+
+    demo().then((value)=>{
+        console.log(value);
+    })
 
 </script>
 </html>
