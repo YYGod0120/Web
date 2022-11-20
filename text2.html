@@ -12,47 +12,14 @@
   </body>
 
   <script>
-let p = new Promise((resolve,reject)=>{
-    console.log('从我这里开始啦');
-    resolve(1)
-}).then((value)=>{
-    console.log(value);
-    return 2
-}).then((value)=>{
-    console.log(value);
-},(err1)=>{
-    console.log("有error1:",err1);
-}).then(()=>{
-    console.log(3);
-    throw '报错啦'
-}).then(()=>{
-    console.log(4);
-},(err2)=>{
-    console.log("有error2:",err2);
-}).then(()=>{
-    console.log(5);
-})
-
-用过使用catch来捕获错误
-
-//请求每个资源（这里用定时器模拟）
-// let step = (time) => {
-//   return new Promise((resolve) => {
-//     setTimeout(() => {
-//       resolve("在红岩学技术太有趣了！");
-//     }, time);
-//   });
-// };
-// async function demo() {
-//   let word1 = await step(500);
-//   console.log(word1); //在红岩学技术太有趣了！
-//   let word2 = await step(1000);
-//   console.log(word2);//在红岩学技术太有趣了！
-//   let word3 = await step(1500);
-//   return "函数执行完成";
-// }
-// demo().then((res) => {
-//   console.log(res);//函数执行完成
-// });
+try{
+  let a = 'lalala';
+  console.log(c);
+  alert('一样可以运行')
+}
+catch(err){
+  console.log(err);
+  alert('跳到catch咯')
+}
   </script>
 </html>
