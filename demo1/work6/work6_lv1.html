@@ -68,42 +68,56 @@
     // transform()
     
 
-    // // Promise 写法
-    // const transform = (box,x) => {
+    // Promise 写法
+    // const transform = (box) => {
     //     setTimeout(()=>{
-    //         box.classList.add('tra')
-    //     },x)
+    //         box.classList.add('tra');
+    //     },2000)
     // }
 
-    // let  p = new Promise((resolve,reject) => {
-    //     resolve(transform(box1,1000))
+    new Promise((resolve,reject) => {
+        setTimeout(()=>{
+            resolve(box1.classList.add('tra'));
+        },2000);
+    }).then(()=>{
         
-    // }).then((value)=>{
-    //     transform(box2,2000)
-    // },(err)=>{
-    //     console.log('第二个盒子出错啦');
-    // }).then((value)=>{
-    //     transform(box3,3000)
-    // },(err2)=>{console.log('第三个盒子出错啦');})
+        return new Promise((resolve) => {
+            setTimeout(()=>{
+                resolve(box2.classList.add('tra'));
+            },2000);
+        })
+        
+    }).then(function(){
+
+        return new Promise((resolve) => {
+            setTimeout(()=>{
+                resolve(box3.classList.add('tra'));
+            },2000);
+        })
+        
+        
+    }).catch((err)=>{
+        console.log('报错啦');
+    })
 
     //async await方法
-    let step = (box,x) => {
-        return new Promise((resolve)=>{
-            setTimeout(()=>{
-                resolve(box.classList.add('tra'));
-            },x) 
-        })
-    }
+    // let step = (box,x) => {
+    //     return new Promise((resolve)=>{
+    //         setTimeout(()=>{
+    //             resolve(box.classList.add('tra'));
+    //         },x) 
+    //     })
+    // }
     
-    async function demo() {
-        await step(box1,1000);
-        await step(box2,1000);
-        await step(box3,1000);
-        return '结束'
-    }
-    demo().then((value)=>{
-        console.log(value);
-    })
+    // async function demo() {
+    //     await step(box1,1000);
+    //     await step(box2,1000);
+    //     await step(box3,1000);
+    //     return '结束'
+    // }
+    // demo().then((value)=>{
+    //     console.log(value);
+    // })
 
 </script>
 </html>
