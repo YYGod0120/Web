@@ -23,11 +23,11 @@
       <div class="box">
         <input type="text" class="text" />
         <button>发送消息</button>
-        <button class="btn">改头像和名字</button>
+        
       </div>
     </div>
     <script>
-      const ws = new WebSocket("ws://chatroom.chovrio.club/?name=YY&url=https://ts1.cn.mm.bing.net/th/id/R-C.4bbb76e7f402089669866d9c2fcd0d3e?rik=m0A5lnwU0etaOg&riu=http%3a%2f%2fimg.cntraveler.com.cn%2fuserfiles%2f201411%2f141647961052.jpg&ehk=mOvTW37we49haEvQk8JNhpJDAZtjsM9zTmi%2brvTyUjs%3d&risl=&pid=ImgRaw&r=0"); // 监听地址端口号
+      const ws = new WebSocket("ws://chatroom.chovrio.club/?name=YY&url=http://p4.music.126.net/ptx2Jf4PZl3oNLxv4NiADg==/109951164018765577.jpg?param=200y200"); // 监听地址端口号
       // 建立连接后
       ws.onopen = function () {
         console.log("服务器连接");
@@ -43,10 +43,12 @@
         img.src = resData.url;
         const name = document.createElement("div");
         name.innerHTML = resData.nickname;
-        
-      
+        const p = document.createElement("p");
+        p.innerText = resData.message;
+       
         div.append(name);
         div.append(img);
+        div.append(p);
        
         document.querySelector(".box").append(div);
       };
@@ -67,21 +69,25 @@
           ws.send(JSON.stringify(msg));
         }
       }
+      
+      document.addEventListener('keydown',function(e){
+        let keyword = e.keyCode;
+        if(keyword==13) {
+            console.log('发送');
+            sendMessageClick(document.querySelector("input").value);
+            e.preventDefault();
+            document.querySelector("input").value = ''
+       }
 
+    })
       document.querySelector("button").addEventListener("click", () => {
-        console.log(111);
+        console.log('发送');
         sendMessageClick(document.querySelector("input").value);
         document.querySelector("input").value = ''
 
       });
 
-      //改头像
-      const btn = document.querySelector('.btn')
-      btn.addEventListener("click", async() => {
-        let put = await fetch("")
-        
-        
-      });
+    
     </script>
   </body>
 </html>
