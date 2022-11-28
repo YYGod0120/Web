@@ -17,7 +17,7 @@
     const btn = document.querySelector('.button');
     
     btn.addEventListener('click',async ()=>{
-      const name = text.value;
+      
       let rep = await fetch(`https://taskapi.chovrio.club/`)
       if(rep.ok){
         const result = await rep.json();

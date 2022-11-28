@@ -21,12 +21,13 @@
       <h1>聊天室</h1>
       <h2>一些介绍：https://chovrio.club/chatroom/</h2>
       <div class="box">
-        <input type="text" />
+        <input type="text" class="text" />
         <button>发送消息</button>
+        <button class="btn">改头像和名字</button>
       </div>
     </div>
     <script>
-      const ws = new WebSocket("ws://chatroom.chovrio.club/"); // 监听地址端口号
+      const ws = new WebSocket("ws://chatroom.chovrio.club/?name=YY&url=https://ts1.cn.mm.bing.net/th/id/R-C.4bbb76e7f402089669866d9c2fcd0d3e?rik=m0A5lnwU0etaOg&riu=http%3a%2f%2fimg.cntraveler.com.cn%2fuserfiles%2f201411%2f141647961052.jpg&ehk=mOvTW37we49haEvQk8JNhpJDAZtjsM9zTmi%2brvTyUjs%3d&risl=&pid=ImgRaw&r=0"); // 监听地址端口号
       // 建立连接后
       ws.onopen = function () {
         console.log("服务器连接");
@@ -42,8 +43,11 @@
         img.src = resData.url;
         const name = document.createElement("div");
         name.innerHTML = resData.nickname;
+        
+      
         div.append(name);
         div.append(img);
+       
         document.querySelector(".box").append(div);
       };
       // 服务器关闭后
@@ -56,7 +60,7 @@
           ws.send(JSON.stringify(name));
         }
       }
-
+      
       // 发送消息
       function sendMessageClick(msg) {
         if (ws.readyState === WebSocket.OPEN) {
@@ -67,6 +71,16 @@
       document.querySelector("button").addEventListener("click", () => {
         console.log(111);
         sendMessageClick(document.querySelector("input").value);
+        document.querySelector("input").value = ''
+
+      });
+
+      //改头像
+      const btn = document.querySelector('.btn')
+      btn.addEventListener("click", async() => {
+        let put = await fetch("")
+        
+        
       });
     </script>
   </body>

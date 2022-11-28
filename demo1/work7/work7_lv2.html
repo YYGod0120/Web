@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="btn">获得资格</button>
+    <button class="login">登录</button>
+    <button class="btn2">进入</button>
+</body>
+<script>
+    const btn = document.querySelector('.btn');
+    const login = document.querySelector('.login')
+    const btn2 = document.querySelector('.btn2');
+    let pw = {
+        username:'yy',
+        password:'123456'
+    }
+    let dl = {
+        username:'yy',
+        password:'123456',
+        url:"https://ts1.cn.mm.bing.net/th/id/R-C.4bbb76e7f402089669866d9c2fcd0d3e?rik=m0A5lnwU0etaOg&riu=http%3a%2f%2fimg.cntraveler.com.cn%2fuserfiles%2f201411%2f141647961052.jpg&ehk=mOvTW37we49haEvQk8JNhpJDAZtjsM9zTmi%2brvTyUjs%3d&risl=&pid=ImgRaw&r=0"
+    }
+    btn.addEventListener(('click'),async () => {
+        let rep = await fetch("https://taskapi.chovrio.club/users/register",{
+            method:'post',
+            body:JSON.stringify(pw)
+        })
+        let result = await rep.json();
+        console.log(result);
+    })
+
+
+    login.addEventListener(('click'),async () => {
+        let rep = await fetch("https://taskapi.chovrio.club/users/login",{
+            method:'post',
+            body:JSON.stringify(dl)
+        })
+        let result = await rep.json();
+        console.log(result);
+    })
+    token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDAsInVzZXJuYW1lIjoieXkiLCJhdmF0YXIiOiIiLCJpYXQiOjE2Njk1MTQ3MzMsImV4cCI6MTY3MjEwNjczM30.GUJowJ_J8qam8pY3C-vkzeNn4GmcDWwjiCbWd3IKjfY'
+    btn2.addEventListener(('click'),async () => {
+        let rep = await fetch(`https://taskapi.chovrio.club/`,{
+            method:'get',
+            headers:{
+                Authorization:token
+            },
+            // body:JSON.stringify({
+            //     name:'YY'
+            // })
+        })
+        let result = await rep.text();
+        console.log(result);
+    })
+</script>
+</html>
