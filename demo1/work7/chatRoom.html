@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .main_box{
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        background-color: rgb(107, 236, 148);
+        text-align: center;
+        font-weight: 1000;
+        font-size: large;
+        width: 500px;
+        height: 780px;
+        /* display: flex;
+        justify-content: center; */
+      
+    }
+    .btn{
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+    }
+    .mes_box{
+        width: 500px;
+        height: 100px;
+        
+        font-size: medium;
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+        position:relative;
+        
+    }
+    .img_left{
+        position:absolute;
+        left: 0px;
+        top: 50%;
+        transform: translate(0%,-50%);
+        width:50px;
+        height:50px;
+        border-radius: 25px;
+    }
+    .mes{
+        position: absolute;
+        left: 70px;
+        top: 50%;
+        transform: translate(0%,-50%);
+    }
+
+    .mes_right{
+        position: absolute;
+        right: 70px;
+        top: 50%;
+        transform: translate(0%,-50%);
+    }
+
+    .img_right{
+        position:absolute;
+        right: 0px;
+        top: 50%;
+        transform: translate(0%,-50%);
+        width:50px;
+        height:50px;
+        border-radius: 25px;
+    }
+</style>
+<body>
+    <div class="main_box">
+        <p>ChatRoom</p>
+
+            <!-- <div class="mes_box">
+                <img class="img_left" src="http://p4.music.126.net/ptx2Jf4PZl3oNLxv4NiADg==/109951164018765577.jpg?param=200y200" alt="">
+                <div class="mes">
+                    <p>messageaaaaaaaa</p>
+                </div>
+            </div>
+            <div class="mes_box">
+                <img class = "img_right" src="http://p4.music.126.net/ptx2Jf4PZl3oNLxv4NiADg==/109951164018765577.jpg?param=200y200" alt="">
+                <div class="mes_right">
+                    <p>messageaaaaaaaa</p>
+                </div>
+            </div> -->
+            
+        <div class="btn">
+            <input type="text" class="text"/>
+            <button>发送消息</button>
+        </div>
+    </div>
+</body>
+<script>
+    //改名字
+    let name = 'yy';
+    let url = 'http://p4.music.126.net/ptx2Jf4PZl3oNLxv4NiADg==/109951164018765577.jpg?param=200y200';
+    const ws = new WebSocket(`ws://chatroom.chovrio.club/?name=${name}&url=http://p4.music.126.net/ptx2Jf4PZl3oNLxv4NiADg==/109951164018765577.jpg?param=200y200`); // 监听地址端口号
+    // 建立连接后
+    ws.onopen = function () {
+      console.log("服务器连接");
+    };
+    // 服务器发送数据后
+    ws.onmessage = ({ data }) => {
+      const resData = JSON.parse(data);
+      console.log("服务端发过来数据", resData);
+      const div = document.createElement("div");
+      div.className = "mes_box";
+      //判断用户
+      if(resData.nickname == name){
+        const main_box = document.querySelector('.main_box');
+        let mes_box = document.createElement('div');
+        mes_box.className = 'mes_box';
+        let img_right = document.createElement('img');
+        img_right.src = resData.url;
+        img_right.className = 'img_right';
+        let mes_right = document.createElement('div');
+        mes_right.className = 'mes_right';
+        let p = document.createElement('p')
+        p.innerHTML = resData.message;
+
+        mes_right.append(p);
+        mes_box.append(img_right);
+        mes_box.append(mes_right);
+        main_box.append(mes_box);
+      }
+      else{
+        const main_box = document.querySelector('.main_box');
+        let mes_box = document.createElement('div');
+        mes_box.className = 'mes_box';
+        let img_left = document.createElement('img');
+        img_left.src = resData.url;
+        img_left.className = 'img_left';
+        let mes_right = document.createElement('div');
+        mes_right.className = 'mes';
+        let p = document.createElement('p')
+        p.innerHTML = resData.message;
+
+        mes_right.append(p);
+        mes_box.append(img_left);
+        mes_box.append(mes_right);
+        main_box.append(mes_box);
+      }
+     
+      
+    };
+    //加节点
+    // function addRightElent(){
+    //     const main_box = document.querySelector('.main_box');
+    //     let mes_box = document.createElement('div');
+    //     mes_box.className = mes_box;
+    //     let img_right = document.createElement('img');
+    //     img_right.src = url;
+    //     let mes_right = document.createElement('div');
+    //     mes_right.className = mes_right;
+    //     let p = document.createElement('p')
+    //     p.innerHTML = resData.message;
+
+    //     mes_right.append(p);
+    //     mes_box.append(img_right);
+    //     mes_box.append(mes_right);
+    //     main_box.append(mes_box);
+    // }
+    // function addLeftElent(){
+        // const main_box = document.querySelector('.main_box');
+        // let mes_box = document.createElement('div');
+        // mes_box.className = 'mes_box';
+        // let img_left = document.createElement('img');
+        // img_left.src = url;
+        //  img_left.className = 'img_left';
+        // let mes = document.createElement('div');
+        // mes.className = 'mes';
+        // let p = document.createElement('p')
+        // p.innerHTML = resData.message;
+
+        // mes_right.append(p);
+        // mes_box.append(img_left);
+        // mes_box.append(mes);
+        // main_box.append(mes_box);
+    // }
+
+
+
+    // 服务器关闭后
+    ws.onclose = () => {
+      console.log("服务器关闭");
+    };
+    // 昵称修改
+    function nickUpdateClick(name) {
+      if (ws.readyState === WebSocket.OPEN) {
+        ws.send(JSON.stringify(name));
+      }
+    }
+    
+    // 发送消息
+    function sendMessageClick(msg) {
+      if (ws.readyState === WebSocket.OPEN) {
+        ws.send(JSON.stringify(msg));
+      }
+    }
+    
+    document.addEventListener('keydown',function(e){
+      let keyword = e.keyCode;
+      if(keyword==13) {
+          console.log('发送');
+          sendMessageClick(document.querySelector("input").value);
+          e.preventDefault();
+          document.querySelector("input").value = ''
+     }
+
+  })
+    document.querySelector("button").addEventListener("click", () => {
+      console.log('发送');
+      sendMessageClick(document.querySelector("input").value);
+      document.querySelector("input").value = '';
+      
+      
+      });
+
+  
+  </script>
+</html>
