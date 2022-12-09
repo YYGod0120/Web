@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //call的模拟实现
+Function.prototype.mycall = function(target_ele, ...args) {
+    target_ele.fun = this; //改变this的指向
+    target_ele.fun(...args);
+    delete target_ele.fun;
+    return target_ele;
+}
+
+
+
+    //apply的模拟实现
+Function.prototype.myApply = function(target_ele,args){
+    target_ele.fun = this; 
+    target_ele.fun(...args);
+    delete target_ele.fun;
+    return target_ele;
+
+
+
+}
+
+
+
+let a = {};
+let c = function(name,age){
+    this.name = name;
+    this.age = age;
+}
+c.mycall(a,'YY',18)
+console.log(a);
+</script>
+</html>
